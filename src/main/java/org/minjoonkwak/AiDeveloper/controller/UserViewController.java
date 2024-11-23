@@ -17,7 +17,7 @@ public class UserViewController {
         return "signup";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index(){
         return "index";
     }
