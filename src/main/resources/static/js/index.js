@@ -56,4 +56,13 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "/signup";
         });
     }
+
+    // 로그아웃 버튼 클릭 시 로그아웃 처리
+        const logoutButton = document.getElementById("logoutButton");
+        if (logoutButton) {
+            logoutButton.addEventListener("click", function () {
+                window.location.href = "/logout"; // 서버에 로그아웃 요청
+            });
+        }
+
 });

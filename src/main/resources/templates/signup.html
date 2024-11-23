@@ -19,6 +19,10 @@
         <h2 class="text-white">SIGN UP</h2>
         <p class="text-white-50 mt-2 mb-5">서비스 사용을 위한 회원 가입</p>
 
+        <div th:if="${errorMessage}" class="error-message">
+          <p th:text="${errorMessage}"></p>
+        </div>
+
         <div class = "mb-2">
           <form th:action="@{/user}" method="POST">
             <!-- 토큰을 추가하여 CSRF 공격 방지 -->

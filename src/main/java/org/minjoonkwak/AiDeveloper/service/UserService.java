@@ -19,6 +19,10 @@ public class UserService {
     private final TokenProvider tokenProvider;
 
     public Long save(AddUserRequest dto) {
+
+        if (userRepository.findByEmail(dto.getEmail()).isPresent()){
+            throw new IllegalArgumentException("이미 사용 중인 이메일 입니다.");
+        }
         return userRepository.save(User.builder()
                 .email(dto.getEmail())
                 .password(bCryptPasswordEncoder.encode(dto.getPassword()))
