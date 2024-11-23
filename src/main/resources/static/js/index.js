@@ -38,3 +38,22 @@ setInterval(showNextBanner, 3000);
 
 // 프로그레스 바 초기 설정
 progressBar.style.width = '100%';
+
+// 로그인 및 회원가입 버튼 이벤트 추가
+document.addEventListener("DOMContentLoaded", function () {
+    // 로그인 버튼 클릭 시 login.html로 이동
+    const loginButton = document.getElementById("loginButton");
+    if (loginButton) {
+        loginButton.addEventListener("click", function () {
+            window.location.href = "/login";
+        });
+    }
+
+    // 회원가입 버튼 클릭 시 signup.html로 이동
+    const signupButton = document.getElementById("signupButton");
+    if (signupButton) {
+        signupButton.addEventListener("click", function () {
+            window.location.href = "/signup";
+        });
+    }
+});
