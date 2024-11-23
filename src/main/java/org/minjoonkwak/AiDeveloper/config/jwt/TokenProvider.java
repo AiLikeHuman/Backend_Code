@@ -28,7 +28,7 @@ public class TokenProvider {
         Date now = new Date();
         return makeToken(new Date(now.getTime() + expiredAt.toMillis()), user);
     }
-
+    
     private String makeToken(Date expiry, User user) {
         Date now = new Date();
 
