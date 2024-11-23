@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>한국친구</title>
+    <link rel="stylesheet" href="../css/index_chat.css" />
+    <link rel="stylesheet" href="../css/chat.css" />
+</head>
+<body>
+<div class="container">
+    <nav>
+        <h1>AI 여행친구</h1>
+        <div class="Auth">
+            <p class="sign">회원가입</p>
+            <p>|</p>
+            <p class="login">로그인</p>
+        </div>
+    </nav>
+
+    <!-- 채팅 메시지가 표시될 영역 -->
+    <div id="chat-box" class="chat-box"></div>
+
+    <div class="chatting">
+        <input
+                type="text"
+                id="messageInput"
+                class="message-input"
+                placeholder="메시지를 입력하세요..."
+        />
+        <button class="btnn" onclick="sendMessage()">보내기</button>
+    </div>
+</div>
+<script src="../js/chat.js"></script>
+</body>
+</html>

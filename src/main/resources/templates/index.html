@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>모바일 전용 페이지</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="container">
+    <nav>
+        <h1>AI 여행친구</h1>
+        <div class="Auth">
+            <p class="sign">회원가입</p>
+            <p>|</p>
+            <p class="login">로그인</p>
+        </div>
+    </nav>
+    <section>
+        <div class="banner-container">
+            <!--배너 컨테이너는 모양 담당 -->
+            <div class="banner-track" id="bannerTrack">
+                <!--배너 트랙은 움직임 담당(역할을 나눔으로서 유지보수에 용이함) -->
+                <div class="banner-item" style="background-color: lightcoral">
+                    이곳에 1번 광고
+                </div>
+                <div class="banner-item" style="background-color: lightseagreen">
+                    이곳에 2번 광고
+                </div>
+                <div class="banner-item" style="background-color: lightblue">
+                    이곳에 3번 광고
+                </div>
+                <div class="banner-item" style="background-color: lightcoral">
+                    이곳에 1번 광고
+                </div>
+            </div>
+            <!-- 현재 광고 순서 표시 -->
+            <div class="ad-indicator" id="adIndicator">1/5</div>
+            <!-- 프로그레스 바 -->
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </section>
+    <main>
+        <div>
+            <h1>친구 선택하기</h1>
+        </div>
+        <div class="friend_selection">
+            <div>
+                <a href="html/한국친구.html">
+                    <img
+                            class="main_img"
+                            src="asset/korean_girl.jfif"
+                            alt="한국 친구 사진"
+                    />
+                </a>
+                <p>한국 친구</p>
+            </div>
+            <div>
+                <a href="html/일본친구.html">
+                    <img class="main_img" src="asset/japan_girl.jfif" alt="" />
+                </a>
+                <p>일본 친구</p>
+            </div>
+        </div>
+        <div class="friend_selection">
+            <div>
+                <a href="html/미국친구.html">
+                    <img class="main_img" src="asset/america_girl.jfif" alt="" />
+                </a>
+                <p>미국 친구</p>
+            </div>
+            <div>
+                <a href="html/두바이친구.html">
+                    <img
+                            class="main_img"
+                            src="asset/dubai_boy.jfif"
+                            alt="한국 친구 사진"
+                    />
+                </a>
+                <p>두바이 친구</p>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="js/index.js"></script>
+</body>
+</html>
