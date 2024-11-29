@@ -1,5 +1,6 @@
 package org.minjoonkwak.AiDeveloper.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.minjoonkwak.AiDeveloper.config.jwt.TokenProvider;
 import org.minjoonkwak.AiDeveloper.domain.User;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.Duration;
 
 @RequiredArgsConstructor
+@Transactional
 @Service
 public class UserService {
 
@@ -20,13 +22,12 @@ public class UserService {
 
     public Long save(AddUserRequest dto) {
 
-        if (userRepository.findByEmail(dto.getEmail()).isPresent()){
-            throw new IllegalArgumentException("이미 사용 중인 이메일 입니다.");
-        }
-        return userRepository.save(User.builder()
-                .email(dto.getEmail())
+        System.out.println("Saving UserId: " + dto.getUserId());
+        User user = User.builder()
+                .userId(dto.getUserId())
                 .password(bCryptPasswordEncoder.encode(dto.getPassword()))
-                .build()).getId();
+                .build();
+        return userRepository.save(user).getId();
     }
 
     public User findById(Long userId) {
@@ -34,15 +35,17 @@ public class UserService {
                 .orElseThrow(() -> new IllegalArgumentException("Unexpected user"));
     }
 
-    public String authenticate(String email, String password) {
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid email or password"));
+    public String authenticate(String userId, String password) {
+        System.out.println("Attempting to login with UserId: " + userId); // 로그 추가
+        User user = userRepository.findByUserId(userId)
+                .orElseThrow(() -> new IllegalArgumentException("아이디 또는 비밀번호가 잘못되었습니다."));
 
+        // 비밀번호 검증
         if (!bCryptPasswordEncoder.matches(password, user.getPassword())) {
-            throw new IllegalArgumentException("Invalid email or password");
+            throw new IllegalArgumentException("아이디 또는 비밀번호가 잘못되었습니다.");
         }
 
-        // 인증이 성공하면 액세스 토큰을 생성하여 반환
+        // 인증 성공 후 토큰 생성
         return tokenProvider.generateToken(user, Duration.ofHours(2));
     }
 

@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,22 +21,39 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false)
+    @Column(name = "id", updatable = false) // PK, auto_increment
     private Long id;
 
-    @Column(name = "email", nullable = false, unique = true)
-    private String email;
+    @Column(name = "created_at", updatable = false) // 생성일시
+    private LocalDateTime createdAt;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "updated_at") // 수정일시
+    private LocalDateTime updatedAt;
+
+    @Column(name = "user_id", nullable = false, unique = true) // 사용자 ID
+    private String userId;
+
+    @Column(name = "nickname") // 닉네임
+    private String nickname;
+
+    @Column(name = "password", nullable = false) // 비밀번호
     private String password;
 
+    @Column(name = "kakao_id") // 카카오 ID
+    private String kakaoId;
+
+    @Column(name = "google_id") // 구글 ID
+    private String googleId;
+
     @Builder
-    public User(String email, String password, String auth) {
-        this.email = email;
+    public User(String userId, String password, String nickname, String kakaoId, String googleId) {
+        System.out.println("Building User with UserId: " + userId); // 로그 추가
+        this.userId = userId;
         this.password = password;
+        this.nickname = nickname;
+        this.kakaoId = kakaoId;
+        this.googleId = googleId;
     }
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("user"));
@@ -43,7 +61,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return userId;
     }
 
     @Override
@@ -70,4 +88,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

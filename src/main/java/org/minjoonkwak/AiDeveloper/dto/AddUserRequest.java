@@ -8,8 +8,8 @@ import lombok.Setter;
 @Getter
 public class AddUserRequest {
 
-    @Schema(description = "사용자의 이메일", example = "user@example.com")
-    private String email;
+    @Schema(description = "사용자의 아이디", example = "user@example.com")
+    private String userId;
 
     @Schema(description = "사용자의 비밀번호", example = "password123")
     private String password;

@@ -20,16 +20,17 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     private final static String TOKEN_PREFIX = "Bearer ";
 
     @Override
-    protected void doFilterInternal(
-            HttpServletRequest request,
-            HttpServletResponse response,
-            FilterChain filterChain)  throws ServletException, IOException {
-
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
         String authorizationHeader = request.getHeader(HEADER_AUTHORIZATION);
         String token = getAccessToken(authorizationHeader);
 
-        if (tokenProvider.validToken(token)) {
+        System.out.println("Received Authorization Header: " + authorizationHeader);
+        System.out.println("Extracted Token: " + token);
+
+        if (token != null && tokenProvider.validToken(token)) {
             Authentication authentication = tokenProvider.getAuthentication(token);
+            System.out.println("Authenticated User: " + authentication.getName());
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
 

@@ -19,13 +19,12 @@ public class UserApiController {
 
     @PostMapping("/user")
     public String signup(AddUserRequest request, org.springframework.ui.Model model) {
-        try{
+        try {
             userService.save(request);
             return "redirect:/login";
-        } catch (IllegalArgumentException e){
-
-            model.addAttribute("errorMessage", e.getMessage());
-            return "redirect:/signup";
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("errorMessage", e.getMessage()); // 에러 메시지 전달
+            return "signup"; // signup.html로 리턴
         }
     }
 

@@ -1,63 +1,74 @@
 .btnn {
-    background-color: #1a73e8; /* 버튼 배경색 (파란색) */
-    color: white; /* 글자색 흰색 */
-    padding: 10px 17px; /* 안쪽 여백 */
-    border: none; /* 테두리 없음 */
-    border-radius: 8px; /* 둥근 테두리 */
-    font-size: 16px; /* 글자 크기 */
-    font-weight: bold; /* 글자 두껍게 */
-    cursor: pointer; /* 마우스를 올리면 클릭 가능한 표시 */
-    transition: background-color 0.3s ease; /* 색 변경 효과 */
-  }
+  background-color: #1a73e8; /* 버튼 배경색 (파란색) */
+  color: white; /* 글자색 흰색 */
+  padding: 10px 17px; /* 안쪽 여백 */
+  border: none; /* 테두리 없음 */
+  border-radius: 8px; /* 둥근 테두리 */
+  font-size: 13px; /* 글자 크기 */
+  font-weight: bold; /* 글자 두껍게 */
+  cursor: pointer; /* 마우스를 올리면 클릭 가능한 표시 */
+  transition: background-color 0.3s ease; /* 색 변경 효과 */
+  word-wrap: normal;
+}
 
-  .btnn:hover {
-    background-color: #0b5ed7; /* 호버 시 더 진한 파란색 */
-  }
+.btnn:hover {
+  background-color: #0b5ed7; /* 호버 시 더 진한 파란색 */
+}
 
-  .btnn:active {
-    background-color: #064ba1; /* 클릭 시 더 어두운 파란색 */
-    transform: scale(0.98); /* 클릭 시 살짝 눌리는 효과 */
-  }
-  .message-input {
-    width: 20%; /* 전체 너비 */
-    padding: 12px; /* 안쪽 여백 */
-    border: 2px solid #ccc; /* 테두리 */
-    border-radius: 8px; /* 둥근 테두리 */
-    font-size: 16px; /* 글자 크기 */
-    box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
-    outline: none; /* 포커스 시 기본 테두리 제거 */
-    transition: border-color 0.3s ease; /* 테두리 색 변경 효과 */
-  }
+.btnn:active {
+  background-color: #064ba1; /* 클릭 시 더 어두운 파란색 */
+  transform: scale(0.98); /* 클릭 시 살짝 눌리는 효과 */
+}
 
-  .message-input:focus {
-    border-color: #1a73e8; /* 포커스 시 파란색 테두리 */
-  }
+.message-input {
+  width: 90%; /* 입력창을 더 넓게 변경 */
+  padding: 12px; /* 안쪽 여백 */
+  border: 2px solid #ccc; /* 테두리 */
+  border-radius: 8px; /* 둥근 테두리 */
+  font-size: 16px; /* 글자 크기 */
+  box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
+  outline: none; /* 포커스 시 기본 테두리 제거 */
+  transition: border-color 0.3s ease; /* 테두리 색 변경 효과 */
+}
 
+.message-input:focus {
+  border-color: #1a73e8; /* 포커스 시 파란색 테두리 */
+}
 
 .chat-box {
-    width: 99%;
-    height: 560px;
-    background-color: black;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    overflow-y: auto;
+  width: 90%;
+  height: 560px;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; /* 메시지들을 세로로 나열 */
 }
-
 
 .chat-message {
-    background-color: #1a73e8;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px 0;
-    max-width:55%;
-    word-wrap: break-word; /* 긴 텍스트가 잘리지 않고 줄바꿈되도록 */
-    margin-left: auto;
+  display: flex;
+  background-color: #1a73e8;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  /* 메시지의 최대 너비 */
+  word-wrap: break-word;
+  text-align: right;
+  float: right;
+  margin-right: 10px; /* Add margin for spacing */
 }
-.chatting{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+
+.chatting {
+  display: flex;
+  justify-content: space-between; /* 입력창과 버튼을 양쪽으로 배치 */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  max-width: 400px;
+  height: 40px;
+  position: absolute;
+}

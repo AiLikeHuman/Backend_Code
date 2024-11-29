@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class LoginRequest {
-    private String userId;
-    private String password;
+public class JapanReviewRequest {
+
+    private String title;
+    private String content;
 }
