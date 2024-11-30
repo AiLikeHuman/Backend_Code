@@ -18,14 +18,9 @@ public class UserApiController {
     private final UserService userService;
 
     @PostMapping("/user")
-    public String signup(AddUserRequest request, org.springframework.ui.Model model) {
-        try {
-            userService.save(request);
-            return "redirect:/login";
-        } catch (IllegalArgumentException e) {
-            model.addAttribute("errorMessage", e.getMessage()); // 에러 메시지 전달
-            return "signup"; // signup.html로 리턴
-        }
+    public String signup(AddUserRequest request) {
+        userService.save(request);
+        return "redirect:/login";
     }
 
     @GetMapping("/logout")

@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Question") // 테이블 이름 매핑
+@Table(name = "question") // 테이블 이름 매핑
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // 기본 생성자 제한
 @Getter
 public class Question {

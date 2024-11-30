@@ -28,8 +28,17 @@ public class TokenProvider {
     private final UserRepository userRepository;
 
     public String generateToken(User user, Duration expiredAt) {
+        System.out.println("Generating token for user: " + user.getUserId());
         Date now = new Date();
-        return makeToken(new Date(now.getTime() + expiredAt.toMillis()), user);
+        return Jwts.builder()
+                .setHeaderParam(Header.TYPE, Header.JWT_TYPE)
+                .setIssuer(jwtProperties.getIssuer())
+                .setIssuedAt(now)
+                .setExpiration(new Date(now.getTime() + expiredAt.toMillis()))
+                .setSubject(user.getUserId())
+                .claim("id", user.getId())
+                .signWith(SignatureAlgorithm.HS256, jwtProperties.getSecretKey())
+                .compact();
     }
 
     private String makeToken(Date expiry, User user) {
@@ -54,6 +63,7 @@ public class TokenProvider {
 
             return true;
         } catch (Exception e) {
+            System.out.println("Token validation failed: " + e.getMessage());
             return false;
         }
     }

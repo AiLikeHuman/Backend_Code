@@ -112,6 +112,11 @@ show tables;]]></console>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="746284d2-595e-4310-8fde-083f844bf4a2" dataset="blog.users" active-filter-id="" />
+    <filter-actions connection-id="746284d2-595e-4310-8fde-083f844bf4a2" dataset="AI.users" active-filter-id="a73a616c-561a-484d-9d12-8e1bc4a70668">
+      <filter id="a73a616c-561a-484d-9d12-8e1bc4a70668" name="minjoon6505@gmail.com" temporary="false" custom-name="true" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -125,7 +130,7 @@ show tables;]]></console>
       <connection id="746284d2-595e-4310-8fde-083f844bf4a2" active="true" signed="true">
         <database>
           <name value="Connection" />
-          <description value="awseb-e-bj2k4kcb6y-stack-awsebrdsdatabase-7wgvufspjn0n.cxug6mqu634v.ap-south-1.rds.amazonaws.com" />
+          <description value="awseb-e-anbrb6t9pj-stack-awsebrdsdatabase-zy91sky5kpxi.cxug6mqu634v.ap-south-1.rds.amazonaws.com" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
           <database-version value="8.0" />
@@ -133,7 +138,7 @@ show tables;]]></console>
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="awseb-e-bj2k4kcb6y-stack-awsebrdsdatabase-7wgvufspjn0n.cxug6mqu634v.ap-south-1.rds.amazonaws.com" />
+          <host value="awseb-e-anbrb6t9pj-stack-awsebrdsdatabase-zy91sky5kpxi.cxug6mqu634v.ap-south-1.rds.amazonaws.com" />
           <port value="3306" />
           <database value="mysql" />
           <tns-folder value="" />

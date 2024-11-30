@@ -22,6 +22,14 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
+        String uri = request.getRequestURI();
+
+        // 인증이 필요 없는 URI에 대해 필터를 건너뜀
+        if (uri.startsWith("/signup") || uri.startsWith("/login") || uri.startsWith("/api/signup") || uri.startsWith("/api/login")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         String authorizationHeader = request.getHeader(HEADER_AUTHORIZATION);
         String token = getAccessToken(authorizationHeader);
 
